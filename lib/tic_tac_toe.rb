@@ -69,3 +69,27 @@ def current_player(board)
   # end
   turn_count(board).even? ? "X" : "O"
 end
+
+def won?(board)
+  WIN_COMBINATIONS.find do |win_combination|
+    if win_combination.all? do |index|
+        position_taken?(board, index)
+      end
+      board[win_combination[0]] == board[win_combination[1]] && board[win_combination[1]] == board[win_combination[2]]
+    end
+  end
+end
+
+def full?(board)
+  board.none? do |index|
+    index.nil? || index == " "
+  end
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
