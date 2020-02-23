@@ -99,3 +99,7 @@ def winner(board)
     board[won?(board)[0]]
   end
 end
+
+def play
+
+end
