@@ -26,11 +26,7 @@ def move(board, index, character)
 end
 
 def position_taken?(board, index)
-  if board[index] == " " || board[index] == "" || board[index] == nil
-    false
-  else
-    true
-  end
+  !(board[index].nil? || board[index] == " ")
 end
 
 def valid_move?(board, index)
